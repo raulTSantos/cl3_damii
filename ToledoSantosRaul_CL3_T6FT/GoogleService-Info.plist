@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>32264504495-v64jjbqa7fk1f3qc5c9ebl74rfbp7ilk.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.32264504495-v64jjbqa7fk1f3qc5c9ebl74rfbp7ilk</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCJYvkujkwXDuooPQqZlEQlkM44yqwIAKg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>32264504495</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.cibertec.ToledoSantosRaul-CL3-T6FT</string>
+	<key>PROJECT_ID</key>
+	<string>toledosantosraulcl3damii</string>
+	<key>STORAGE_BUCKET</key>
+	<string>toledosantosraulcl3damii.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:32264504495:ios:5292cf3d880cc53d6bc05a</string>
+</dict>
+</plist>
