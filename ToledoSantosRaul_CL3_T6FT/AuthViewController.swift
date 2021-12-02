@@ -46,7 +46,9 @@ class AuthViewController: UIViewController {
     }
     
     @IBAction func facebookAuthAction(_ sender: Any) {
-        /*let loginManager = LoginManager()
+/*
+         
+        let loginManager = LoginManager()
         loginManager.logOut()
         loginManager.logIn(permissions: [.email], viewController: self) { (result) in
             switch result {
@@ -66,7 +68,10 @@ class AuthViewController: UIViewController {
             case .failed(_):
                 break
             }
-        }*/
+        }
+         
+         
+*/
     }
     
     

@@ -17,12 +17,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var txtNombrePersona: UITextField!
     
     private let  db = Firestore.firestore()
-    
- //let id = txtIdPersona.text
- // var id : String?
-    // id == txtIdPersona.text
-   
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -63,7 +58,16 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func updatePersonAction(_ sender: Any) {
-        
+        let  ids = txtIdPersona.text
+        db.collection("users").document(ids ?? "").setData([
+            "idPersona":txtIdPersona.text ?? "",
+            "nombrePersona":txtNombrePersona.text ?? ""
+            ])
+        let alert = UIAlertController ( title: "Informacion", message: "Registro Exitoso", preferredStyle: .alert)
+        alert.addAction(UIAlertAction (title: "Aceptar", style: .default))
+        self.present(alert, animated: true, completion: nil)
+        self.txtIdPersona.text = ""
+        self.txtNombrePersona.text = ""
     }
     
     @IBAction func deletePersonAction(_ sender: Any) {
