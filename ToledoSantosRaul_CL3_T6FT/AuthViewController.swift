@@ -11,19 +11,16 @@ import Firebase
 //import FacebookLogin
 class AuthViewController: UIViewController {
 
+   
     
     @IBOutlet weak var txtFullName: UITextField!
-    
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
-    
     @IBOutlet weak var txtConfirmPassword: UITextField!
-    
     @IBOutlet weak var facebookBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       // Analytics.logEvent("InitScreen", parameters: ["mensaje": "Integracion de firebase completa"])
     }
 
     
@@ -44,37 +41,7 @@ class AuthViewController: UIViewController {
         }
         login();
     }
-    
-    @IBAction func facebookAuthAction(_ sender: Any) {
-/*
-         
-        let loginManager = LoginManager()
-        loginManager.logOut()
-        loginManager.logIn(permissions: [.email], viewController: self) { (result) in
-            switch result {
-                
-                
-            case .success(let granted, let declined, let token):
-                
-                let credential = FacebookAuthProvider.credential(withAccessToken: token.tokenString)
-                
-                Auth.auth().signIn(with: credential) { (result, error) in
-                    self.showHome(result: result, error: error, provider: .facebook)
-                }
-                
-                
-            case .cancelled:
-                break
-            case .failed(_):
-                break
-            }
-        }
-         
-         
-*/
-    }
-    
-    
+
     @IBAction func btnSingUpAction(_ sender: Any) {
         if txtFullName.text?.isEmpty == true {
             print("Ingrese un su nombre")
@@ -105,6 +72,34 @@ class AuthViewController: UIViewController {
         signUp();
     }
     
+    @IBAction func facebookAuthAction(_ sender: Any) {
+/*
+         
+         let loginManager = LoginManager()
+         loginManager.logOut()
+         loginManager.logIn(permissions: [.email], viewController: self) { (result) in
+         switch result {
+         
+         
+         case .success(let granted, let declined, let token):
+         
+         let credential = FacebookAuthProvider.credential(withAccessToken: token.tokenString)
+         
+         Auth.auth().signIn(with: credential) { (result, error) in
+         self.showHome(result: result, error: error, provider: .facebook)
+         }
+         
+         
+         case .cancelled:
+         break
+         case .failed(_):
+         break
+         }
+         }
+         
+         
+*/
+    }
     
     
     /* metodos */
@@ -113,9 +108,14 @@ class AuthViewController: UIViewController {
         Auth.auth().createUser(withEmail: txtEmail.text!, password: txtPassword.text!) {(authResult ,error) in
             if let result = authResult  , error == nil {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let viewc = storyboard.instantiateViewController(withIdentifier: "homeController") as! HomeViewController
+                viewc.email = self.txtEmail.text!
+                print(result)
+                /*self.navigationController?.pushViewController(viewc, animated: true)
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let viewc = storyboard.instantiateViewController(withIdentifier: "homeController")
                 viewc.modalPresentationStyle = .overFullScreen
-                self.present(viewc, animated: true)
+                self.present(viewc, animated: true)*/
             }else{
                 let alert = UIAlertController ( title: "Error", message: "Se ha producido un Error", preferredStyle: .alert)
                 alert.addAction(UIAlertAction (title: "Aceptar", style: .default))
@@ -129,10 +129,16 @@ class AuthViewController: UIViewController {
         Auth.auth().signIn(withEmail: txtEmail.text!, password: txtPassword.text!){
             (result ,error) in
             if let result = result , error == nil {
+                 print(result)
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let viewc = storyboard.instantiateViewController(withIdentifier: "homeController")
-                viewc.modalPresentationStyle = .overFullScreen
-                self.present(viewc, animated: true)
+                let viewc = storyboard.instantiateViewController(withIdentifier: "homeController") as! HomeViewController
+                viewc.email = self.txtEmail.text!
+                self.navigationController?.pushViewController(viewc, animated: true)
+                /*let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                 let viewc = storyboard.instantiateViewController(withIdentifier: "homeController")
+                 viewc.modalPresentationStyle = .overFullScreen
+                 self.present(viewc, animated: true)*/
+                
             }else{
                 let alert = UIAlertController ( title: "Error", message: "Se ha producido un Error", preferredStyle: .alert)
                 alert.addAction(UIAlertAction (title: "Aceptar", style: .default))
@@ -140,12 +146,6 @@ class AuthViewController: UIViewController {
                 }
 
             }
-        
-    /*if txtEmail.text=="raul" && txtPassword.text=="123"{
-     let storyboard = UIStoryboard(name: "Main", bundle: nil)
-     let viewc = storyboard.instantiateViewController(withIdentifier: "homeController")
-     navigationController?.pushViewController(viewc, animated: true)
-        }*/
     }
     
 }

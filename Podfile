@@ -8,7 +8,7 @@ target 'ToledoSantosRaul_CL3_T6FT' do
   # Pods for ToledoSantosRaul_CL3_T6FT
   #pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
-   pod 'Firebase/Firestore'
+  pod 'Firebase/Firestore'
   #pod 'AppAuth' ,'1.2.0'
   #pod 'FacebookLogin' ,'1.6.0'
   #pod 'FBSDKLoginKit' 
